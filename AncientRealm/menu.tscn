@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://do3wgw3eegoqc"]
+
+[ext_resource type="Script" path="res://Menu.gd" id="1_cr2x8"]
+[ext_resource type="Texture2D" uid="uid://3m7i3wrlqv2k" path="res://Sprites/pixil-frame-0.png" id="2_hfogy"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_u6cro"]
+diffuse_texture = ExtResource("2_hfogy")
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 118.0
+offset_top = 38.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cr2x8")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 246.0
+offset_top = 247.0
+offset_right = 653.0
+offset_bottom = 348.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+icon = SubResource("CanvasTexture_u6cro")
+flat = true
+
+[node name="Option" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Option"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit
+"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Option" to="." method="_on_option_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
